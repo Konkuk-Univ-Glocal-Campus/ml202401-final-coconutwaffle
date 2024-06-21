@@ -8,7 +8,7 @@ import sys
 import langid
 import requests
 import certifi
-
+deepL_API_KEY ='REMOED_API_KEY'
 # Logger setup
 logger = logging.getLogger('TranslationLogger')
 logger.setLevel(logging.INFO)
@@ -53,8 +53,8 @@ signal.signal(signal.SIGINT, handle_exit)
 
 
 def deepl(text, dst_lang='en'):
-    global res
-    key ='15c0fa04-1559-4687-864b-9a50eeaf682f:fx'
+    global res, deepL_API_KEY
+    key = deepL_API_KEY
     url = 'https://api-free.deepl.com/v2/translate'
     params = {'auth_key' : key, 'text' : text, "target_lang": 'EN'}
     req = requests.post(url, data=params, verify=certifi.where())
